@@ -13,7 +13,7 @@
     justify-content:center;
   }
 
-  
-.isDone {
-  text-decoration: line-through;
+#button{
+  display : grid;
+  text-align: center;
 }
