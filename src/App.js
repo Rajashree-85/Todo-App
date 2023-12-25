@@ -14,12 +14,12 @@ import { setTextRange } from "typescript";
     {id : 4, value: "Take a shower"}
   ]);
 
-  const [TextHidden,setTextHidden]=useState(true);
-  const onClick=()=>setTextHidden(!TextHidden);
-
+  function handleClick(){
+    setcountList([{id:99999,value:"Nothing to do Buddy! Sleep"}]);
+  }
 
    let listItems = countList.map((num) => (
-      <li key={num.id}>
+        <li key={num.id}>
         <p>{num.value}</p>
       </li>
     ));
@@ -30,9 +30,9 @@ import { setTextRange } from "typescript";
         <Header />
   
         <hr />
+        <ul>{listItems}</ul>
 
-      <button onClick={onClick} id="button" >{TextHidden?'Show':'Empty'}</button>
-      {!TextHidden?<ul>{listItems}</ul>:<SubHeader />}      
+        <button onClick={handleClick} >Empty</button> 
       
       </div>
     );

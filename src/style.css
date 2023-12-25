@@ -17,3 +17,7 @@
   display : grid;
   text-align: center;
 }
+
+.strikethrough:checked + .strikeThis {
+  text-decoration: line-through
+}
