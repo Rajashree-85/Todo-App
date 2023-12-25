@@ -35,17 +35,13 @@ import { setTextRange } from "typescript";
     ));
   
       return ( 
-
-      <div className="App">
-        <Header />
-  
+      <div className="Application">
+        <Header />  
         <hr />
         <ul>{listItems}</ul>
-
         <div className="button">
         <button onClick={removeCompleted} id="button">Remove Completed</button> 
         </div>
-
       </div>
     );
   }
