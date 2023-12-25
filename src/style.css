@@ -3,21 +3,16 @@
     text-align: center;
   }
 
-  h1,h2,button{
+  h1,h2{
     display: flex;
     justify-content:center;
   }
 
-  li{
+  .button,li{
     display: flex;
     justify-content:center;
-  }
+  } 
 
-#button{
-  display : grid;
-  text-align: center;
-}
-
-.strikethrough:checked + .strikeThis {
-  text-decoration: line-through
+li.done{
+  text-decoration: line-through;
 }

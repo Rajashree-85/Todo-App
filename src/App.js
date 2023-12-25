@@ -7,19 +7,26 @@ import { setTextRange } from "typescript";
 
  export default function App() {
   let [countList,setcountList]=useState([
-    { id: 0, value: "Read SpringBoot" },
-    { id: 1, value: "Complete assignments" },
-    { id: 2, value: "Prepare breakfast" },
-    { id: 3, value: "Sleep for 2 hours" },
-    {id : 4, value: "Take a shower"}
+    { id: 0, value: "Read SpringBoot",done:false },
+    { id: 1, value: "Complete assignments" ,done:false},
+    { id: 2, value: "Prepare breakfast",done:false },
+    { id: 3, value: "Sleep for 2 hours",done:false },
+    {id : 4, value: "Take a shower",done:false}
   ]);
 
   function handleClick(){
     setcountList([{id:99999,value:"Nothing to do Buddy! Sleep"}]);
   }
 
+  const toggleDone=(countid)=>{
+    setcountList((prevtask)=>
+    prevtask.map((num)=>
+    num.id === countid ? {...num, done: !num.done}:num)
+    );
+  };
+
    let listItems = countList.map((num) => (
-        <li key={num.id}>
+        <li key={num.id} className={num.done?'done':''} onClick={()=>toggleDone(num.id)}>
         <p>{num.value}</p>
       </li>
     ));
@@ -32,8 +39,10 @@ import { setTextRange } from "typescript";
         <hr />
         <ul>{listItems}</ul>
 
-        <button onClick={handleClick} >Empty</button> 
-      
+        <div className="button">
+        <button onClick={handleClick} id="button">Empty</button> 
+        </div>
+
       </div>
     );
   }
