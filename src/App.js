@@ -14,9 +14,12 @@ import { setTextRange } from "typescript";
     {id : 4, value: "Take a shower",done:false}
   ]);
 
-  function handleClick(){
-    setcountList([{id:99999,value:"Nothing to do Buddy! Sleep"}]);
-  }
+  //function handleClick(){
+    //setcountList([{id:99999,value:"Nothing to do Buddy! Sleep"}]);}
+
+  const removeCompleted = () => {
+    setcountList((prevTasks) => prevTasks.filter((num) => !num.done));
+  };
 
   const toggleDone=(countid)=>{
     setcountList((prevtask)=>
@@ -26,7 +29,7 @@ import { setTextRange } from "typescript";
   };
 
    let listItems = countList.map((num) => (
-        <li key={num.id} className={num.done?'done':''} onClick={()=>toggleDone(num.id)}>
+        <li key={num.id} className={num.done?'done':''} onClick={()=>toggleDone(num.id)} style={{ cursor: 'pointer' }} >
         <p>{num.value}</p>
       </li>
     ));
@@ -40,7 +43,7 @@ import { setTextRange } from "typescript";
         <ul>{listItems}</ul>
 
         <div className="button">
-        <button onClick={handleClick} id="button">Empty</button> 
+        <button onClick={removeCompleted} id="button">Remove Completed</button> 
         </div>
 
       </div>
